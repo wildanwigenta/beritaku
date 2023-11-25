@@ -48,8 +48,6 @@
                     <label for="password_lama" class="col-md-4 col-form-label text-md-end">{{ __('Password Lama') }}</label>
 
                     <div class="col-md-8">
-                        <input id="password_lama" type="hidden" class="form-control @error('password_lama') is-invalid @enderror"
-                            name="password_lama" value="{{ Auth::user()->password }} " autocomplete="password_lama">
                         <input id="password_lama" type="password" class="form-control @error('password_lama') is-invalid @enderror"
                             name="password_lama" value="" autocomplete="password_lama">
 
@@ -61,11 +59,23 @@
                     </div>
                 </div>
                 <div class="row mb-3">
+                    <label for="password_lama" class="col-md-4 col-form-label text-md-end">{{ __('Password Baru') }}</label>
+
+                    <div class="col-md-8">
+                        <input id="password_lama" type="password" class="form-control @error('password_lama') is-invalid @enderror"
+                            name="password_lama" value="" autocomplete="password_lama">
+
+                        @error('password_lama')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+                {{-- <div class="row mb-3">
                     <label for="password_baru" class="col-md-4 col-form-label text-md-end">{{ __('Password Baru') }}</label>
 
                     <div class="col-md-8">
-                        <input id="password_baru" type="hidden" class="form-control @error('password_baru') is-invalid @enderror"
-                            name="password_baru" value="{{ Auth::user()->password }} " autocomplete="password_baru">
                         <input id="password_baru" type="password" class="form-control @error('password_baru') is-invalid @enderror"
                             name="password_baru" value="" autocomplete="password_baru">
 
@@ -75,7 +85,7 @@
                         </span>
                         @enderror
                     </div>
-                </div>
+                </div> --}}
                 <div class="row mb-3">
                     <div class="col text-end">
                         <a href="{{ URL::previous() }}" class="btn btn-danger">Kembali</a>

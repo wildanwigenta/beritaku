@@ -13,20 +13,21 @@ class ProfileController extends Controller
     }
     public function update_profile()
     {
-        $user = User::findOrFail($id);
+        $user = Auth::user();
         $this->validate($request, [
-            'password' => 'required',
-            'new_password' => 'confirmed|max:8|different:password',
+            'nama' => 'required',
+            'email' => 'required',
+            'password_lama' => 'required',
+            'password_baru' => 'confirmed|max:8|different:password',
         ]);
         
-        if (Hash::check($request->password, $user->password)) { 
+        if (Hash::check($request->password_lama, $user->password)) { 
            $user->fill([
-               'password' => Hash::make($request->new_password),
-
+               'password' => Hash::make($request->password_baru),
                ])->save();
         
-           $request->session()->flash('success', 'Password changed');
-            return redirect()->route('your.route');
+           $request->session()->flash('success', 'Data berhasil diubah');
+            return redirect()->route('admin.page.profile.ubahProfile');
         
         } else {
             $request->session()->flash('error', 'Password does not match');
