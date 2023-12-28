@@ -9,6 +9,6 @@ class Kategori extends Model
 {
     use HasFactory;
 
-    // protected $guarded = ['id_kategori'];
+    protected $guarded = ['id_kategori'];
 
 }

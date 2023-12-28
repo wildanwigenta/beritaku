@@ -11,8 +11,8 @@ class Berita extends Model
 
     protected $guarded = ['id_berita'];
 
-    // public function kategori()
-    // { 
-    //     return $this->hasOne(Kategori::class, 'id_kategori', 'id_kategori');
-    // }
+    public function kategori()
+    { 
+        return $this->hasOne(Kategori::class, 'id_kategori', 'id_kategori');
+    }
 }

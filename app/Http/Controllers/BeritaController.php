@@ -42,6 +42,7 @@ class BeritaController extends Controller
 
             $data = [
                 'id_kategori' => request()->kategori,
+                'id' => Auth::user()->id,
                 'image' => $file_name,
                 'judul' => request()->judul,
                 'isi' => request()->isi,
